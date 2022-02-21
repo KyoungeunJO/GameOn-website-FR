@@ -63,7 +63,9 @@
               onsubmit="return validate();"
             >
               <div
-                class="formData">
+                class="formData"
+                data-error="Veuillez entrer 2 caractères ou plus pour le champ du prénom." 
+                data-error-visible="false">
                 <label for="first">Prénom</label><br>
                 <input
                   class="text-control"
@@ -74,7 +76,9 @@
                 /><br>
               </div>
               <div
-                class="formData">
+                class="formData"
+                data-error="Veuillez entrer 2 caractères ou plus pour le champ du nom." 
+                data-error-visible="false">
                 <label for="last">Nom</label><br>
                 <input
                   class="text-control"
@@ -84,7 +88,9 @@
                 /><br>
               </div>
               <div
-                class="formData">
+                class="formData"
+                data-error="Vous devez écrire votre adresse e-mail." 
+                data-error-visible="false">
                 <label for="email">E-mail</label><br>
                 <input
                   class="text-control"
@@ -94,7 +100,9 @@
                 /><br>
               </div>
               <div
-                class="formData">
+                class="formData"
+                data-error="Vous devez entrer votre date de naissance." 
+                data-error-visible="false">
                 <label for="birthdate">Date de naissance</label><br>
                 <input
                   class="text-control"
@@ -104,13 +112,17 @@
                 /><br>
               </div>
               <div
-                class="formData">
+                class="formData"
+                data-error="Vous devez indiquer un chiffre." 
+                data-error-visible="false">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
-                class="formData">
+                class="formData"
+                data-error="Vous devez choisir une option." 
+                data-error-visible="false">
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -180,7 +192,9 @@
               </div>
 
               <div
-                class="formData">
+                class="formData" 
+                date-error="Vous devez vérifier que vous acceptez les termes et conditions."
+                data-error-visible="false">
                 <input
                   class="checkbox-input"
                   type="checkbox"
