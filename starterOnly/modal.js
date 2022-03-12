@@ -95,8 +95,8 @@ function displayConfirmationMessage() {
   let confirmMessage = document.createElement("div");
   confirmMessage.setAttribute("id", "confirmMessage");
   confirmMessage.innerHTML = `
-    <h2>Merci pour votre participation !</h2>
-    <button id="closeConfirmMessage" class="">Fermer</button>
+    <h2>Merci pour votre inscription !</h2>
+    <button id="closeConfirmMessage" class="btn-signup">Fermer</button>
   `
   modalBody.appendChild(confirmMessage);
 
@@ -107,7 +107,8 @@ function displayConfirmationMessage() {
 function validate() {
   let inputAnswers = [];
 
-  inputs.forEach( 
+  // Vérifiaction de tous les inputs  
+  inputs.forEach(
     (input) => {
       if (window['test_' + input.id](input)) {
         inputAnswers.push(true);
@@ -116,21 +117,27 @@ function validate() {
         inputAnswers.push(false);
         displayError(input);
       }
-
-    if (radioInputs.some(r => r.checked)) {
-      inputAnswers.push(true);
-      hideError(radioInputs[0]);
-    } else {
-      inputAnswers.push(false);
-      displayError(radioInputs[0]);
-    }
-
-      // Si tout est vrai dans inputAnswers alors on envoie le formulaire
-      if (inputAnswers.every(i => i==true))
-        sendForm()
-  })
+    })
+  // Vérification des ratios-inputs
+  if (radioInputs.some(r => r.checked)) {
+    inputAnswers.push(true);
+    hideError(radioInputs[0]);
+  } else {
+    inputAnswers.push(false);
+    displayError(radioInputs[0]);
+  }
+  // Si tout est vrai dans inputAnswers alors on envoie le formulaire
+  if (inputAnswers.every(i => i == true))
+    sendForm()
   return false;
 }
+
+function resetInputsError() {
+  inputs.forEach(
+    (input) => {
+      hideError(input);
+    })
+};
 
 function sendForm() {
   // reset le formulaire
